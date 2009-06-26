@@ -78,10 +78,11 @@ function custom_autoload($search_class){
 			break;
 			case 'Driver':
 				$full_path = 'libraries/drivers' . ( $full_path ? '/'.$full_path : '' );
+
 				if ( $filename = Kohana::find_file( $full_path, $full_class ) )
 				{
-					require $filename;
-					return include_class( $search_class, $full_class );
+					require_once $filename;
+					return include_class( $search_class, $full_class.'_Driver' );
 				}	
 			break;
 			default:
@@ -96,11 +97,11 @@ function custom_autoload($search_class){
 					$full_path = strtolower( 'helpers' . ( $full_path ? '/'.$full_path : '' ) );
 					$full_class= strtolower( $full_class );
 				}
-				
-				if ( $filename = Kohana::find_file( $full_path, $full_class) )
+
+				if ( $filename = Kohana::find_file( $full_path, $full_class ) )
 				{
 					require $filename;
-					return include_class( $search_class, $full_class );
+					return include_class( $search_class, $full_class.'_Core' );
 				}	
 			break;	
 		}
