@@ -33,9 +33,9 @@ function custom_autoload($search_class){
 	 * 		Path_SubPath_Class_Name_Controller
 	 * it will look for the following files and in
 	 * the following order
-	 * 		- controllers/path_subpath_class_name.php
-	 * 		- controllers/path/subpath_class_name.php	
-	 * 		- controllers/path/subpath/class_name.php (This should be the file)
+	 *		- controllers/path_subpath_class_name.php
+	 *		- controllers/path/subpath_class_name.php	
+	 *		- controllers/path/subpath/class_name.php (This should be the file)
 	 *		- controllers/path/subpath/class/name.php
 	 */
 	for( $i = 0; $i <=count($paths) ; $i++ )
